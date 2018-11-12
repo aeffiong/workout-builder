@@ -1,5 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var cors = require('cors');
 
 // Sets up the Express App
 // =============================================================
@@ -12,6 +13,8 @@ var PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
+
+app.use(cors({origin: '*'}))
 
 // Static directory
 app.use(express.static("app/public"));

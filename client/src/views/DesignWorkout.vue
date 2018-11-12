@@ -1,18 +1,30 @@
 <template lang="pug">
   div(class="about") 
-    h1 Create a new workout
-    p Add an exercise into each field
-
-    label Upper Body
-      input(placeholder="bench press, shoulder press, row, etc")
-    label Lower Body
-      input(placeholder="squat, deadlift, lunges, etc")
-    label Core
-      input(placeholder="plank, deadbugs, v-up, etc")
-    label Cardio
-      input(placeholder="jumping jacks, tuck jumps, mountain climbers, etc")
-    
-    button(type="submit" @click="handleSubmit") Submit Workout
+    div(class="flex mb-4")
+      div(class="w-full")
+        h1 Create a new workout
+    div(class="flex mb-4")
+      div(class="w-full")
+        p Add an exercise into each field
+    div(class="flex mb-4")
+      div(class="w-full")
+        label Upper Body:
+        input(class=" input px-2" placeholder="bench press, shoulder press, row, etc")
+    div(class="flex mb-4")
+      div(class="w-full")
+        label Lower Body:
+        input(class=" input px-2" placeholder="squat, deadlift, lunges, etc")
+    div(class="flex mb-4")
+      div(class="w-full")
+        label Core:
+        input(class=" input px-2" placeholder="plank, deadbugs, v-up, etc")
+    div(class="flex mb-4")
+      div(class="w-full")
+        label Cardio:
+        input(class=" input px-2" placeholder="jumping jacks, tuck jumps, mountain climbers, etc")
+    div(class="flex mb-4")
+      div(class="w-full")
+        button(class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="submit" @click="handleSubmit") Submit Workout
 
     
 </template>
@@ -29,4 +41,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .input {
+    border: 2px;
+    border-color: gray;
+    border-style: solid;
+  }
+</style>
+
 

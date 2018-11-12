@@ -1,15 +1,10 @@
 <template lang="pug">
   div(class="posts")
-   h1 Posts
-    p This file will list all the posts.
-
-    div(v-for="post in posts" :key="workoutPost")
+    div(v-for="post in posts")
       <p>
-        <span><b>title</b></span><br />
+        <span><b>{{ post.title }}</b></span><br />
         <span>{{ post.description }}</span>
       </p>
-    </div>
-  </div>
 </template>
 
 <script>

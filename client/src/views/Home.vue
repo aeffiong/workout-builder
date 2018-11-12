@@ -1,12 +1,11 @@
 <template lang="pug">
   div(class="home")
-    img(alt="workout builder woman putting on shoes" src="../assets/fitness.jpg")
+    img(alt="workout builder woman putting on shoes" src="../assets/fitness.jpg" class="mb-4")
     Header(msg="Design Your Own Workout")
-    button(type='button' @click="handleButtonClick") Click here to get started 
+    button( class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded mt-4" type='button' @click="handleButtonClick") Click here to get started 
 </template>
 
 <script>
-// @ is an alias to /src
 import Header from '@/components/Header.vue'
 
 export default {
@@ -21,3 +20,8 @@ export default {
   }
 }
 </script>
+
+<style>
+
+</style>
+
