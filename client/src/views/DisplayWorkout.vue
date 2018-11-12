@@ -4,6 +4,8 @@
         br
         Posts
         br
+        Workout
+        br
         h3 Tips for your workout.
             p To get your heart rate up, complete this as a circuit, meaning go from one more to the next with little rest. Aim for 4-6 rounds of the circuit. 
             p Decide if you want to use weights for your upper body and lower body moves or just your body weight.
@@ -14,11 +16,13 @@
 
 <script>
 import Posts from '@/components/Posts.vue'
+import Workout from '@/components/Workout.vue'
 
 export default {
     name: 'displayWorkout',
     components: {
-    Posts
+    Posts,
+    Workout
   },
 
 }

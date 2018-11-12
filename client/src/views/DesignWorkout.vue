@@ -9,18 +9,22 @@
     div(class="flex mb-4")
       div(class="w-full")
         label Upper Body:
+        br
         input(class=" input px-2" placeholder="bench press, shoulder press, row, etc")
     div(class="flex mb-4")
       div(class="w-full")
         label Lower Body:
+        br
         input(class=" input px-2" placeholder="squat, deadlift, lunges, etc")
     div(class="flex mb-4")
       div(class="w-full")
         label Core:
+        br
         input(class=" input px-2" placeholder="plank, deadbugs, v-up, etc")
     div(class="flex mb-4")
       div(class="w-full")
         label Cardio:
+        br
         input(class=" input px-2" placeholder="jumping jacks, tuck jumps, mountain climbers, etc")
     div(class="flex mb-4")
       div(class="w-full")
@@ -36,6 +40,7 @@ export default {
     handleSubmit() {
       // save the data to the db and then go to the view-workout page
       console.log("save the data")
+      
       this.$router.push('view-workout')
     }
   }

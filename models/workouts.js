@@ -9,11 +9,17 @@ var Workouts = sequelize.define("workouts", {
   lower_body: Sequelize.STRING,
   core: Sequelize.STRING,
   cardio: Sequelize.STRING,
-  created_at: Sequelize.DATE
-});
+  });
 
 // Syncs with DB
-Workouts.sync();
+Workouts.sync({force: true}).then(() => {
+  return Workouts.create({
+    upper_body: 'Push ups',
+    lower_body: 'Squats',
+    core: 'Plank',
+    cardio: 'Jumping Jacks',
+  })
+});
 
 // Makes the Chirp Model available for other files (will also create a table)
 module.exports = Workouts;

@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import DesignWorkout from './views/DesignWorkout.vue'
 import DisplayWorkout from './views/DisplayWorkout.vue'
 import Posts from '@/components/Posts'
+import Workout from '@/components/Workout'
 
 
 Vue.use(Router)
@@ -31,6 +32,11 @@ export default new Router({
       path: '/posts',
       name: 'Posts',
       component: Posts
+    },
+    {
+      path: '/api/all',
+      name: 'PostsAll',
+      component: Workout
     }
   ]
 })
