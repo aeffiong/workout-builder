@@ -6,29 +6,30 @@
     div(class="flex mb-4")
       div(class="w-full")
         p Add an exercise into each field
-    div(class="flex mb-4")
-      div(class="w-full")
-        label Upper Body:
-        br
-        input(class=" input px-2" placeholder="bench press, shoulder press, row, etc")
-    div(class="flex mb-4")
-      div(class="w-full")
-        label Lower Body:
-        br
-        input(class=" input px-2" placeholder="squat, deadlift, lunges, etc")
-    div(class="flex mb-4")
-      div(class="w-full")
-        label Core:
-        br
-        input(class=" input px-2" placeholder="plank, deadbugs, v-up, etc")
-    div(class="flex mb-4")
-      div(class="w-full")
-        label Cardio:
-        br
-        input(class=" input px-2" placeholder="jumping jacks, tuck jumps, mountain climbers, etc")
-    div(class="flex mb-4")
-      div(class="w-full")
-        button(class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="submit" @click="handleSubmit") Submit Workout
+    form()
+      div(class="flex mb-4")
+        div(class="w-full")
+          label Upper Body:
+          br
+          input(class=" input px-2" placeholder="bench press, shoulder press, row, etc" v-model.trim="workout.upper_body")
+      div(class="flex mb-4")
+        div(class="w-full")
+          label Lower Body:
+          br
+          input(class=" input px-2" placeholder="squat, deadlift, lunges, etc" v-model.trim="workout.lower_body")
+      div(class="flex mb-4")
+        div(class="w-full")
+          label Core:
+          br
+          input(class=" input px-2" placeholder="plank, deadbugs, v-up, etc" v-model.trim="workout.core")
+      div(class="flex mb-4")
+        div(class="w-full")
+          label Cardio:
+          br
+          input(class=" input px-2" placeholder="jumping jacks, tuck jumps, mountain climbers, etc" v-model.trim="workout.cardio")
+      div(class="flex mb-4")
+        div(class="w-full")
+          button(class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="submit" @click="handleSubmit") Submit Workout
 
     
 </template>
@@ -36,11 +37,21 @@
 <script>
 export default {
   name: 'designWorkout',
+  data() {
+    return {
+      workout: {
+        upper_body: '',
+        lower_body: '',
+        core: '',
+        cardio: ''
+      }
+    }
+  },
   methods: {
     handleSubmit() {
       // save the data to the db and then go to the view-workout page
-      console.log("save the data")
-      
+      console.log(this.workout)
+      this.$store.dispatch("SAVEWORKOUTS", this.workout)
       this.$router.push('view-workout')
     }
   }

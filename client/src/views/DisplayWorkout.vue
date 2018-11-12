@@ -2,9 +2,7 @@
     div(class="displayWorkout")
         h1 Here is your workout
         br
-        Posts
-        br
-        Workout
+        div {{workouts}}
         br
         h3 Tips for your workout.
             p To get your heart rate up, complete this as a circuit, meaning go from one more to the next with little rest. Aim for 4-6 rounds of the circuit. 
@@ -23,6 +21,11 @@ export default {
     components: {
     Posts,
     Workout
+  },
+  computed: {
+    workouts() {
+      return this.$store.dispatch('GETWORKOUTS')
+    }
   },
 
 }
