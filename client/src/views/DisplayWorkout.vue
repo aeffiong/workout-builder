@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     workouts() {
-      return this.$store.dispatch('GETWORKOUTS')
+      return this.$store.getters.WORKOUTS
     }
   },
 

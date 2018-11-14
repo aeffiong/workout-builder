@@ -5,10 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    workouts: [
-      {upper_body: "push ups", lower_body: "squats", core: "planks", cardio: "jumping jacks"},
-      {upper_body: "bench", lower_body: "lunges", core: "v-ups", cardio: "high knees"},
-    ]
+    workouts: []
 
   },
   getters: {
@@ -25,11 +22,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    GETWORKOUTS: (context, payload) => {
-      context.commit("SETWORKOUTS", payload)
+    GETWORKOUTS: ({commit}, payload) => {
+      commit("SETWORKOUTS", payload)
     },
-    SAVEWORKOUTS: (context, payload) => {
-      context.commit("ADDWORKOUTS", payload)
+    SAVEWORKOUTS: ({commit }, payload) => {
+      commit("ADDWORKOUTS", payload)
     }
   }
 })
