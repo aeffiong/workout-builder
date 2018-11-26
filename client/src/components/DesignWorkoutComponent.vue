@@ -5,27 +5,22 @@
         h1 Create a new workout
     div(class="flex mb-4")
       div(class="w-full")
-        p Add an exercise into each field
+        p Add an exercise for the following body parts, separated by a comma: upper body, lower body, core, cardio.
     form(
-      :value="newWorkout"
-      @change="getWorkouts"
+      @submit.prevent='handleSubmit'
     )
       div(class="flex mb-4")
         div(class="w-full")
           label Enter your workout plan:
           br
           input( 
-            class=" input px-2" 
-            :value="newWorkout"
-            @change="getWorkouts"
+            class="w-3/4 input px-2 mb-4" 
+            type="text"
+            v-model="workout"
             placeholder="bench press, squat, plank, run etc" 
-            
             )
-          button(class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="submit" @click="handleSubmit") Submit Workout
-          h3 Your workout is:
-          span {{ newWorkout }}
-
-    
+          br
+          button(class="bg-green hover:bg-green-dark text-white font-bold py-2 px-4 rounded" type="submit") Submit Workout
 </template>
 
 <script>
@@ -34,18 +29,16 @@ export default {
   name: 'designWorkout',
   data() {
     return {
-      workout: {
-        workout: '',
-      }
+      workout: '',
     }
   },
-  computed: mapGetters(['workouts', 'newWorkout']),
+  computed: mapGetters(['workouts']),
   methods: {
-       ...mapActions(['getWorkouts', 'addWorkouts', 'clearWorkout']), 
+       ...mapActions([ 'addWorkouts' ]), 
        handleSubmit() {
       // save the data to the db and then go to the view-workout page
       console.log(this.workout)
-      this.$store.dispatch('addWorkouts', this.workout)
+      this.addWorkouts(this.workout)
       this.$router.push('view-workout')
     }
   }     

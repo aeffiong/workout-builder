@@ -5,34 +5,33 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    workouts: ['fdafada', 'adfaa', 'adfaa'],
-    newWorkout: ''
+    workouts: [],
+    // newWorkout: ''
 
   },
   mutations: {
-    GETWORKOUT (state, workouts) {
-      state.newWorkout = workouts
+    ADDWORKOUT: (state, payload) => {
+      const workout = {
+        workout: payload
+      }
+      state.workouts.push(workout)
     },
-    ADDWORKOUT (state) {
-      state.workouts.push(state.newWorkout)
-    },
-    CLEARWORKOUT (state) {
-      state.newWorkout = ''
-    }
+    // CLEARWORKOUT (state) {
+    //   state.newWorkout = ''
+    // }
   },
   actions: {
-    getWorkouts ({commit}, workout) {
-      commit("GETWORKOUT", workout)
+    // getWorkouts ({commit}, workout) {
+    //   commit("GETWORKOUT", workout)
+    // },
+    addWorkouts: ({ commit }, payload) => {
+      commit("ADDWORKOUT", payload)
     },
-    addWorkouts ({commit }) {
-      commit("ADDWORKOUT")
-    },
-    clearWorkout ({commit}) {
-      commit('CLEARWORKOUT')
-    }
+    // clearWorkout ({commit}) {
+    //   commit('CLEARWORKOUT')
+    // }
   },
   getters: {
-    newWorkout: state => state.newWorkout,
     workouts: state => state.workouts
   },
 })

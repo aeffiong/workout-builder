@@ -3,7 +3,7 @@
     img(alt="workout builder woman putting on shoes" src="../assets/fitness.jpg" class="mb-4")
     Header(msg="Design Your Own Workout")
     
-    button( class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded mt-4" type='button' @click="handleButtonClick") Click here to get started 
+    button( class="bg-green hover:bg-green-dark text-white font-bold py-2 px-4 rounded mt-4" type='button' @click="handleButtonClick") Click here to get started 
 </template>
 
 <script>
@@ -13,11 +13,6 @@ export default {
   name: 'home',
   components: {
     Header
-  },
-  computed: {
-    workouts() {
-      return this.$store.state.workouts
-    }
   },
   methods: {
     handleButtonClick() {
